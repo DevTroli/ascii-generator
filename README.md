@@ -27,7 +27,7 @@
 
 1. Clone o repositório:
    ```bash
-   git clone https://github.com/seu-usuario/ascii-generator.git
+   git clone https://github.com/DevTroli/ascii-generator.git
    cd ascii-generator
    ```
 
@@ -73,7 +73,7 @@ export_html(banner, "banner_projeto.html", "Banner do Meu Projeto")
 ## 📊 Estrutura do Projeto
 
 ```
-ascii-art-generator/
+ascii-generator/
 ├── asciiArt.py         # Script principal e biblioteca 
 ├── exemplo.py          # Exemplo de uso como módulo
 ├── test_asciiArt.py    # Testes unitários
