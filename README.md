@@ -1,23 +1,30 @@
 # 🎨 AsciiArt Generator CLI
+> *Transforme textos e imagens em belas artes ASCII para seu terminal e documentos*
 
-## 🚀 O Projeto
+## 🚀 Visão Geral
 
-**AsciiArt Generator** é uma ferramenta de linha de comando que transforma texto simples em banners artísticos ASCII, perfeitos para documentação, terminais, e projetos que precisam de um toque visual especial!
+O **AsciiArt Generator** é uma ferramenta de linha de comando (CLI) desenvolvida em Python que permite transformar textos e imagens em arte ASCII. Ideal para desenvolvedores que desejam adicionar um toque visual criativo em documentações, banners de terminal, ou até mesmo em interfaces textuais.
 
+A arte ASCII utiliza caracteres para criar representações visuais, transformando simples textos em elementos gráficos expressivos. Este projeto foi pensado para ser versátil e otimizado, oferecendo diferentes estilos e configurações que se adaptam a diversas necessidades.
+
+```
  █████╗ ███████╗ ██████╗██╗██╗  █████╗ ██████╗ ████████╗
 ██╔══██╗██╔════╝██╔════╝██║██║ ██╔══██╗██╔══██╗╚══██╔══╝
 ███████║███████╗██║     ██║██║ ███████║██████╔╝   ██║   
 ██╔══██║╚════██║██║     ██║██║ ██╔══██║██╔══██╗   ██║   
 ██║  ██║███████║╚██████╗██║██║ ██║  ██║██║  ██║   ██║   
 ╚═╝  ╚═╝╚══════╝ ╚═════╝╚═╝╚═╝ ╚═╝  ╚═╝╚═╝  ╚═╝   ╚═╝   
+```
 
 ## ✨ Funcionalidades
 
-- 🖌️ **Múltiplos estilos**: Block, Classic e Fancy
-- 📄 **Exportação flexível**: Terminal, arquivos de texto e HTML
-- 🔄 **Modo biblioteca**: Use como módulo em seus próprios projetos Python
-- 💻 **Interface CLI simples**: Intuitiva e fácil de usar
-- 🌐 **Suporte a caracteres especiais**: Amplo suporte para símbolos e pontuação
+- 🔤 **Transformação de texto em arte ASCII** com múltiplos estilos
+- 🖼️ **Conversão de imagens em representações ASCII** com ajustes de contraste e brilho
+- 📝 **Geração de banners para documentação** com títulos e subtítulos personalizados
+- 🌐 **Suporte para imagens locais e URLs** com cache inteligente
+- 💾 **Exportação em formatos de texto e HTML**
+- 🧩 **Diferentes densidades e estilos visuais** para imagens
+- 🔄 **Cache automático** para otimização de desempenho
 
 ## 📋 Pré-requisitos
 
@@ -33,26 +40,90 @@
 
 2. Sem dependências externas! 🎉 O projeto usa apenas bibliotecas padrão do Python.
 
+> 💡 **Dica:** Recomendamos a criação de um ambiente virtual antes da instalação das dependências.
+
 ## 🎮 Uso
 
-### Como ferramenta de linha de comando
+### 📝 Modo Texto
+
+Para converter um texto simples em arte ASCII:
 
 ```bash
-# Gerar arte básica
-python asciiArt.py -t "Hello World"
-
-# Escolher um estilo específico
-python asciiArt.py -t "ASCII ART" -s fancy
-
-# Salvar em um arquivo de texto
-python asciiArt.py -t "BANNER" -s block -o banner.txt
-
-# Exportar como HTML
-python asciiArt.py -t "WEB BANNER" -s fancy --html banner.html
-
-# Listar todos os estilos disponíveis
-python asciiArt.py --list-styles
+python asciiart.py -t "Olá Mundo" -s block
 ```
+
+### 🖼️ Modo Imagem
+
+Para converter uma imagem em arte ASCII:
+
+```bash
+python asciiart.py -i caminho/para/imagem.jpg --width 80 --style-img default
+```
+
+Ou usando uma URL:
+
+```bash
+python asciiart.py -i https://exemplo.com/imagem.jpg --compact
+```
+
+### 📚 Modo Documentação
+
+Para criar um banner estilizado para documentação:
+
+```bash
+python asciiart.py --doc --title "Projeto X" --subtitle "Uma ferramenta incrível para análise de dados" --style fancy
+```
+
+## 🌈 Exemplos
+
+**Texto em estilo block:**
+```
+python asciiart.py -t "ASCII" -s block
+```
+
+Resultado:
+```
+  █████   ██████   ██████  ██  ██  
+ ██   ██ ██       ██       ██  ██  
+ ███████ ███████  ██       ██████  
+ ██   ██      ██  ██       ██  ██  
+ ██   ██ ██████    ██████  ██  ██  
+```
+
+**Imagem com ajuste de contraste:**
+```
+python asciiart.py -i logo.png --contrast 1.5 --style-img detailed
+```
+
+**Banner para documentação:**
+```
+python asciiart.py --doc --title "DevTools" --subtitle "Suite de ferramentas para desenvolvedores" --banner-width 60
+```
+
+## 🛠️ Opções e Parâmetros
+
+### Opções Gerais
+- `-t, --text`: Texto para conversão
+- `-i, --image`: Caminho ou URL da imagem
+- `-o, --output`: Arquivo de saída
+- `--html`: Exportar como HTML
+
+### Opções de Texto
+- `-s, --style`: Estilo do texto (opções: `block`, `classic`, `fancy`)
+
+### Opções de Imagem
+- `--width`: Largura da saída em caracteres
+- `--style-img`: Estilo de caracteres para imagens (opções: `default`, `blocks`, `detailed`, `inverse`, `minimal`, `matrix`, `dots`)
+- `--contrast`: Ajuste de contraste (valores entre 0.1 e 3.0)
+- `--brightness`: Ajuste de brilho (valores entre 0.1 e 3.0)
+- `--compact`: Modo compacto para terminais
+
+### Opções de Documentação
+- `--doc`: Ativa o modo documentação
+- `--title`: Título para o banner
+- `--subtitle`: Subtítulo para o banner
+- `--banner-width`: Largura do banner em caracteres
+
 
 ### Como biblioteca em seu código
 
@@ -169,10 +240,15 @@ Para evoluir este projeto, considere:
 
 Este projeto está licenciado sob a licença MIT - veja o arquivo LICENSE para detalhes.
 
-## 🙏 Agradecimentos
+## 👥 Contribuições
 
-- Comunidade de ASCII que mantém viva esta forma de arte
-- Todos os desenvolvedores que valorizam interfaces de terminal e documentação bem formatada
+Contribuições são bem-vindas! Se você tem ideias para melhorar este projeto:
+
+1. Faça um fork do repositório
+2. Crie uma branch para sua feature (`git checkout -b feature/nova-funcionalidade`)
+3. Commit suas mudanças (`git commit -m 'Adiciona nova funcionalidade'`)
+4. Push para a branch (`git push origin feature/nova-funcionalidade`)
+5. Abra um Pull Request
 
 ---
 
